@@ -1,0 +1,31 @@
+name: Python Code Test and Merge
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-python-code:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Python code on remote server
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.REMOTE_SSH_KEY }}
+        script: |
+          cd path/to/python/code
+          python test_script.py
+
+    - name: Auto merge pull request
+      if: success()
+      uses: pascalgn/automerge-action@v0.13.1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        mergeMethod: merge
+        commitMessageTemplate: "Automerge: {{commitMessage}}"
+        pullRequestFilterLabels: "automerge"
