@@ -9,5 +9,5 @@ jobs:
   run-python-code:
     runs-on: self-hosted
     steps:
-      - name: Test
-        run: echo "TEST"
+      - name: Checkout code
+        uses: actions/checkout@v4
