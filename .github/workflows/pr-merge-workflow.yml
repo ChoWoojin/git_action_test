@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  run-python-code:
+  run-python-merge:
     runs-on: self-hosted
     steps:
       - name: Checkout code
@@ -32,3 +32,10 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: ""
           COMMIT_MESSAGE: "PR_TITLE"
+
+  execute-build:
+    needs: run-python-merge
+    runs-on: self-hosted
+    steps:
+      - name: Run python code
+      
