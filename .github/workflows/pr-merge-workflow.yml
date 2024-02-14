@@ -27,9 +27,6 @@ jobs:
 
       - name: Auto merge PR on success
         if: success()
-        uses: pascalgn/automerge-action@v0.14.3
+        uses: "pascalgn/automerge-action@v0.16.2"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MERGE_METHOD: merge
-          MERGE_COMMIT_MESSAGE: "auto-merge"
-          MERGE_LABELS: "auto-merge, automerge"
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
