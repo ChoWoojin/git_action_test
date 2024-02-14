@@ -25,6 +25,8 @@ jobs:
       - name: Run Python script
         run: python test.py
 
-      - name: Success Message
+      - name: Auto merge PR on success
         if: success()
-        run: echo "Python script executed successfully!"
+        uses: "pascalgn/automerge-action@v0.16.2"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
