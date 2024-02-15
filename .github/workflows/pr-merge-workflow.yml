@@ -31,7 +31,6 @@ jobs:
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
           MERGE_LABELS: ""
-          COMMIT_MESSAGE: "PR_TITLE"
 
   # execute-build:
   #   needs: run-python-merge
