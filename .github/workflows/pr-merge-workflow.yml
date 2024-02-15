@@ -30,7 +30,7 @@ jobs:
         uses: "pascalgn/automerge-action@v0.16.2"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        #   MERGE_LABELS: ""
+          MERGE_LABELS: ""
 
   # execute-build:
   #   needs: run-python-merge
