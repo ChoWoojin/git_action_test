@@ -1,0 +1,14 @@
+name: PR Merge Workflow
+
+on:
+  push:
+    branches:
+      - woojin
+
+jobs:
+  run-python-merge:
+    runs-on: self-hosted
+    steps:
+      - run: echo "Test"
+
+      
